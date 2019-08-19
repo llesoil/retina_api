@@ -1,6 +1,6 @@
 // Launch the API
-
 // connect to mongo database
+// TODO : change the following variables into arguments
 var mongoose = require('mongoose');
 var domain_name = 'localhost';
 var mongo_port = 27017;
@@ -13,11 +13,13 @@ mongoose.connect(mongo_address, {useNewUrlParser: true});
 //require('../samples/data.js').load_examples();
 
 // ask some requests to mongo
-//
+// check the request.txt file in the samples folder
 
 // run the server
 var server_port = 1337;
 var server_address = '127.0.0.1';
+
+// the data models are going to evolve
 var data_version = '1.0';
 
 var app = require('./server.js')(data_version);

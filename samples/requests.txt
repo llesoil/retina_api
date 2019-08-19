@@ -1,0 +1,51 @@
+// To get some results, you have to uncomment the line 
+// following the comment "write some examples in mongo" 
+// "require('../samples/data.js').load_examples();" should not be commented
+// in the main.js file (line 13 in the first version)
+
+// to run the request, you can use postman available here : https://www.getpostman.com/
+// each line respect the same structure : type of request, request, request body
+// if the request body is missing, you don't have to fill the body, just leave it empty
+
+// to get all the interventionsin the DB
+get, http://127.0.0.1:1337/intervention/
+
+// you can specify the type of intervention you want to search
+get, http://127.0.0.1:1337/intervention/type_of_intervention=fire
+
+// but if there isn't any, you will get an empty answer
+get, http://127.0.0.1:1337/intervention/type_of_intervention=water
+
+//get the missions
+get, http://127.0.0.1:1337/mission/
+
+// add a mission in DB
+post, http://127.0.0.1:1337/mission/, {"was_changed" : false,
+		"comments" : "Third goal far from the original objective",
+		"mission_end_time" : "2019-05-02T17:05:56,000+02:00",
+		"was_finished" : false,
+		"moving_duration" : "P0Y0M0DT0H19M53,254S",
+		"payload_weight" : 2.3,
+		"pilot_name" : "Olivier",
+		"quality" : 3,
+		"scenario" : "S2",
+		"mission_start_time" : "2019-05-02T16:36:52,154+02:00",
+		"type_of_mission" : "building recognition"}
+
+// the previous request should have added a mission, now you can get two missions
+get, http://127.0.0.1:1337/mission/
+
+// but the second one is false, so we want to delete it
+delete, http://127.0.0.1:1337/mission/scenario=S2
+
+// back to one mission
+get, http://127.0.0.1:1337/mission/
+
+// But I was wrong, the pilot was Vincent and not Olivier, I have to patch
+// you have to replace x with the id of the mission you get on the last response
+// like 5d5b1f11987c1e1d44def65b for an example
+patch, http://127.0.0.1:1337/mission/id=x, {"pilot_name":"Vincent"}
+
+//just to check that the patch request worked, who is the pilot now?
+get, http://127.0.0.1:1337/mission/
+

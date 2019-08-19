@@ -1,18 +1,18 @@
+# API for retina
 
+Interface to request a mongo database, implemented in node.js (express and mongoose needed)
 
-# interface
-
-
+- In the data_models folder: every data schema and model
+- In the main folder: the launcher (main.js) and the express routing
+- In the samples folder: some examples to play with mongo
 
 ## Usage
 
+See ./samples/request.txt to test the API after you launched it.
 
 
-## Developing
+### Others
 
-
-
-### Tools
 
 Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)
  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))   
