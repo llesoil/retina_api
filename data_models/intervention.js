@@ -31,7 +31,8 @@ var intervention_model_1_0 = new mongoose.Schema(
 						"intervention_name" : {type : String, required : false},
 						"quality" : {type: Number, min: [0, 'quality is negative'], max: 9},
 						"intervention_start_time" : String,
-						"type_of_intervention" : String});
+						"type_of_intervention" : String,
+						"free" : [{type : String, required : false}]});
 
 var intervention_models = {
 		"1.0" : intervention_model_1_0

@@ -14,7 +14,8 @@ var video_model_1_0 = new mongoose.Schema({"codec_used" : {type: String, require
 		"horizontal_resolution" : Number,
 		"vertical_resolution" : Number,
 		"start_recording" : String, 
-		"type_of_video" : {type: String, required : false} });
+		"type_of_video" : {type: String, required : false},
+		"free" : [{type : String, required : false}] });
 
 var video_models = {
 		"1.0" : video_model_1_0

@@ -17,8 +17,8 @@ var frame_model_1_0 = new mongoose.Schema(
 		},
 		"frame_time" : String,
 		"quality" : {type: Number, min: [0, 'quality is negative'], max: 9},
-		"zoom_ratio" : { type : Number, required : false, default : 1.0} 
-		});
+		"zoom_ratio" : { type : Number, required : false, default : 1.0},
+		"free" : [{type : String, required : false}]});
 
 var frame_models = {
 		"1.0" : frame_model_1_0

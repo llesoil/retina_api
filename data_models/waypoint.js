@@ -14,7 +14,8 @@ var waypoint_model_1_0 = new mongoose.Schema({
 			"arrival_time" : String,
 			"temperature" : {type : Number, required : false},
 			"wind_direction" : {type : Number, required : false},
-			"wind_strength" : {type : Number, required : false}});
+			"wind_strength" : {type : Number, required : false},
+			"free" : [{type : String, required : false}]});
 
 var waypoint_models = {
 		"1.0" : waypoint_model_1_0
