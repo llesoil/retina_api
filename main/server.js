@@ -62,6 +62,48 @@ function add_get(app, cmd, value, Model, Schema){
 
 function add_patch(app, cmd, value, Model, Schema){
 	
+	var attributes = Schema.obj;
+	
+	for(let att in attributes){
+		
+		app.patch(cmd+':'+att, function (req, res) {
+			
+			
+			var name_attribute = req.params[att].split("=")[0].toString();
+			var search_val = req.params[att].split("=")[1].toString();
+			
+		    Model.where(name_attribute).equals(search_val).find(function (error, items) {
+
+			    if (error) {
+					res.status(500).send(error);
+					return;
+			    }
+			    
+				if (items) {
+					
+					for(var i = 0; i<items.length; i++){
+						var item = items[i];
+						for(var property in req.body){
+							if(property in item){
+								item[property] = req.body[property];						
+							}
+						}
+						
+						item.save();
+					}
+					
+					res.send(items);
+					
+					return;
+				}
+		
+				res.status(404).json({
+					message : value + ' with '+ name_attribute + ' ' + search_val + ' was not found.'
+				});
+		    });
+		 });
+	}
+	
 	app.patch(cmd+':id', function (req, res) {
 		
 		var id = req.params.id.split("=")[1];
@@ -136,6 +178,7 @@ function add_put(app, cmd, value, Model, Schema){
 			});
 	    });
 	 });
+	
 }
 
 function add_post(app, cmd, value, Model, Schema){
