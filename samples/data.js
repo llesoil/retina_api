@@ -60,6 +60,7 @@ var frame = {"camera_orientation" : {
 		"latitude" : 48.452652,
 		"longitude" : -1.6406947
 	},
+	"frame_path" : "/home/eeyes/data/picture/picture1.jpg",
 	"frame_time" : "2019-05-02T16:28:15,562+02:00",
 	"quality" : 2.0,
 	"zoom_ratio" : 1.0};

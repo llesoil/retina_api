@@ -275,6 +275,10 @@ function get_server(data_version){
 
 	});
 	
+	app.get('/exit/', function (req, res) {
+		process.exit();
+	});
+	
 	return app;
 }
 
