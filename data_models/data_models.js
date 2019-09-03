@@ -20,6 +20,7 @@ class Model {
 		this.link_video_camera = require('./link_video_camera.js').models;
 		this.link_video_mission = require('./link_video_mission.js').models;
 		this.link_waypoint_mission = require('./link_waypoint_mission.js').models;
+		this.link_frame_mission = require('./link_frame_mission.js').models;
 	}
 	
 	get_models(version){
@@ -44,7 +45,8 @@ class Model {
 		var Link_sequence_video = new Model("link_sequence_video", this.link_sequence_video[version]); 
 		var Link_video_camera = new Model("link_video_camera", this.link_video_camera[version]); 
 		var Link_video_mission = new Model("link_video_mission", this.link_video_mission[version]); 
-		var Link_waypoint_mission = new Model("link_waypoint_mission", this.link_waypoint_mission[version]); 
+		var Link_waypoint_mission = new Model("link_waypoint_mission", this.link_waypoint_mission[version]);
+		var Link_frame_mission = new Model("link_frame_mission", this.link_frame_mission[version]); 
 		
 		return { "drone" : Drone,
 			"frame" : Frame, 
@@ -64,7 +66,8 @@ class Model {
 			"link_sequence_video" : Link_sequence_video,
 			"link_video_camera" : Link_video_camera,
 			"link_video_mission" : Link_video_mission,
-			"link_waypoint_mission": Link_waypoint_mission};
+			"link_waypoint_mission": Link_waypoint_mission,
+			"link_frame_mission": Link_frame_mission};
 	}
 	
 	get_schema(version){
@@ -87,7 +90,8 @@ class Model {
 			"link_sequence_video" : this.link_sequence_video[version], 
 			"link_video_camera" : this.link_video_camera[version], 
 			"link_video_mission" : this.link_video_mission[version], 
-			"link_waypoint_mission" : this.link_waypoint_mission[version]};
+			"link_waypoint_mission" : this.link_waypoint_mission[version],
+			"link_frame_mission":this.link_frame_mission[version]};
 	}
 }
 

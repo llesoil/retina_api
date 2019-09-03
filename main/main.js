@@ -2,10 +2,10 @@
 // connect to mongo database
 // TODO : change the following variables into arguments
 var mongoose = require('mongoose');
-/*var domain_name = 'localhost';
-var mongo_port = 27017;*/
-var domain_name = 'aqmo01.irisa.fr';
-var mongo_port = 27397;
+var domain_name = 'localhost';
+var mongo_port = 27017;
+/*var domain_name = 'aqmo01.irisa.fr';
+var mongo_port = 27397;*/
 var db_name = 'retina';
 var mongo_address = 'mongodb://' + domain_name + ':' + mongo_port + '/' + db_name;
 
