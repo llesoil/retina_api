@@ -259,7 +259,9 @@ function get_server(data_version){
 	var schemas = require('../data_models/data_models').objects.get_schema(data_version);
 	
 	var listObjects = ['intervention', 'mission', 'drone', 'frame', 'goal', 
-		'sensor', 'sequence', 'video', 'waypoint'];
+		'sensor', 'sequence', 'video', 'waypoint', 'link_camera_drone', 'link_drone_mission', 
+		'link_frame_video', 'link_frame_waypoint', 'link_goal_mission', 'link_mission_intervention', 
+		'link_sequence_video', 'link_video_camera', 'link_video_mission','link_waypoint_mission'];
 	
 	listObjects.forEach(function(value){
 		
