@@ -1,25 +1,25 @@
 function add_get(app, cmd, value, Model, Schema){
 	
-	var attributes = Schema.obj;
-	
-	for(let att in attributes){
+	app.get(cmd+':body', function (req, res) {
 		
-		app.get(cmd+':'+att, function (req, res) {
-			
-			var name_attribute = req.params[att].split("=")[0].toString();
-			var search_val = req.params[att].split("=")[1].toString();
-			
-		    Model.where(name_attribute).equals(search_val).find(function (error, item) {
+		var body = req.body;
+		var cop = Model;
+		
+		for(var att in body){
+			cop = cop.where(att).equals(body[att]);
+		}
+		
+	    cop.find(function (error, item) {
 
-			    if (error) {
-					res.status(500).send(error);
-					return;
-			    }
-				res.json(item);
-		    });
-		 });
-	}
+		    if (error) {
+				res.status(500).send(error);
+				return;
+		    }
+			res.json(item);
+	    });
+	});
 	
+
 	app.get(cmd, function(req, res){
 		
 		Model.find(function (error, items) {
@@ -58,13 +58,32 @@ function add_get(app, cmd, value, Model, Schema){
 			});
 	    });
 	 });
+
+	var attributes = Schema.obj;
+	
+	for(let att in attributes){
+		
+		app.get(cmd+':'+att, function (req, res) {
+			var name_attribute = req.params[att].split("=")[0].toString();
+			var search_val = req.params[att].split("=")[1].toString();
+			
+		    Model.where(name_attribute).equals(search_val).find(function (error, item) {
+
+			    if (error) {
+					res.status(500).send(error);
+					return;
+			    }
+				res.json(item);
+		    });
+		 });
+	}
 }
 
 function add_patch(app, cmd, value, Model, Schema){
 	
 	var attributes = Schema.obj;
 	
-	for(let att in attributes){
+	for(var att in attributes){
 		
 		app.patch(cmd+':'+att, function (req, res) {
 			
