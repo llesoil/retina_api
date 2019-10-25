@@ -1,5 +1,76 @@
 function add_get(app, cmd, value, Model, Schema){
 	
+	if(cmd==='/intervention/'){
+		
+		app.get(cmd+':gps_time', function (req, res) {
+			
+			var gps_time = req.params.gps_time.split("=")[1].toString();
+			
+			var lat1 = gps_time.split(";")[0].toString();
+			var long1 = gps_time.split(";")[1].toString();
+			var lat2 = gps_time.split(";")[2].toString();
+			var long2 = gps_time.split(";")[3].toString();
+			
+			var min_lat = Math.min(lat1, lat2);
+			var max_lat = Math.max(lat1, lat2);
+			var min_long = Math.min(long1, long2);
+			var max_long = Math.max(long1, long2);
+			
+			if(gps_time.size>4){
+				var time = gps_time.split(";")[4].toString();
+				Model.find({ 'groundbase_location.latitude' : { $gte : min_lat, $lte: max_lat},
+	    	         'groundbase_location.longitude' : { $gte : min_long, $lte: max_long},
+	    	         'intervention_start_time' : {$lte : time},
+	    	         'end_of_intervention_time' : {$gte : time} }, function (error, item) {
+		    	
+				    if (error) {
+						res.status(500).send(error);
+						return;
+				    }
+				    
+					if (item) {
+						res.json(item);
+						return;
+					}
+			
+	    	    });
+			}
+			else{
+			    Model.find({ 'groundbase_location.latitude' : { $gte : min_lat, $lte: max_lat},
+	    	         'groundbase_location.longitude' : { $gte : min_long, $lte: max_long}}, function (error, item) {
+			    	
+				    if (error) {
+						res.status(500).send(error);
+						return;
+				    }
+				    
+					if (item) {
+						res.json(item);
+						return;
+					}
+					
+			    });
+			}
+			
+		 });
+	}
+	
+	app.get(cmd, function(req, res){
+		
+		Model.find(function (error, items) {
+
+		      if (error) {
+		        res.status(500).send(error);
+		        return;
+		      }
+
+		      res.json(items);
+		      
+		    });
+		
+		});
+	
+	
 	app.get(cmd+':body', function (req, res) {
 		
 		var body = req.body;
@@ -18,22 +89,6 @@ function add_get(app, cmd, value, Model, Schema){
 			res.json(item);
 	    });
 	});
-	
-
-	app.get(cmd, function(req, res){
-		
-		Model.find(function (error, items) {
-
-		      if (error) {
-		        res.status(500).send(error);
-		        return;
-		      }
-
-		      res.json(items);
-		      
-		    });
-		
-		});
 	
 	app.get(cmd+':id', function (req, res) {
 		
@@ -59,7 +114,7 @@ function add_get(app, cmd, value, Model, Schema){
 	    });
 	 });
 
-	var attributes = Schema.obj;
+	/*var attributes = Schema.obj;
 	
 	for(let att in attributes){
 		
@@ -76,7 +131,7 @@ function add_get(app, cmd, value, Model, Schema){
 				res.json(item);
 		    });
 		 });
-	}
+	}*/
 }
 
 function add_patch(app, cmd, value, Model, Schema){
@@ -86,7 +141,6 @@ function add_patch(app, cmd, value, Model, Schema){
 	for(var att in attributes){
 		
 		app.patch(cmd+':'+att, function (req, res) {
-			
 			
 			var name_attribute = req.params[att].split("=")[0].toString();
 			var search_val = req.params[att].split("=")[1].toString();

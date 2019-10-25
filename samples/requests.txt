@@ -10,15 +10,28 @@
 // to get all the interventionsin the DB
 get, http://127.0.0.1:1337/intervention/
 
-// you can specify the type of intervention you want to search
-get, http://127.0.0.1:1337/intervention/type_of_intervention=fire
+// to get all the interventions between two gps coordinates
+get, http://127.0.0.1:1337/intervention/gps_time=48.353179;-1.641688;48.602724;-1.640057
 
-// but if there isn't any, you will get an empty answer
-get, http://127.0.0.1:1337/intervention/type_of_intervention=water
+// to get all the interventions between two gps coordinates and starting before+ending after a specific time
+get, http://127.0.0.1:1337/intervention/gps_time=48.353179;-1.641688;48.602724;-1.640057;2019-05-02T17:40:00,000+02:00
 
+//you can send a get request with a body like {"quality" : 2} -> it will select all the intervention with the quality field equal to 2
 //get the missions
 get, http://127.0.0.1:1337/mission/
 
+// add a waypoint in DB
+post, http://127.0.0.1:1337/waypoint/, {"battery_level" : 80.5,
+		"waypoint_location" : {"altitude" : 15.321,
+			"latitude" : 48.452666, 
+			"longitude" : -1.6406852},
+			"end_pose_time" : "2019-05-02T17:05:32,854+02:00",
+			"quality" : 2,
+			"arrival_time" : "2019-05-02T17:05:24,413+02:00",
+			"temperature" : 14.3,
+			"wind_direction" : 320.4,
+			"wind_strength" : 25}
+		
 // add a mission in DB
 post, http://127.0.0.1:1337/mission/, {"was_changed" : false,
 		"comments" : "Third goal far from the original objective",
