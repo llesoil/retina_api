@@ -5,7 +5,7 @@ Interface to request a mongo database, implemented in node.js (express and mongo
 - In the data_models folder: every data schema and model
 - In the main folder: the launcher (main.js) and the express routing
 - In the samples folder: some examples to play with mongo
-- In the python folder: old scripts to send or receive files
+- In the python folder: old scripts to send and receive files, script to request the api
 - In the file manager folder: send or receive file, with nodejs
 
 ## Usage
