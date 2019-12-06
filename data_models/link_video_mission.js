@@ -4,15 +4,15 @@
 
 var mongoose = require('mongoose');
 
-var link_video_misssion_model_1_0 = new mongoose.Schema(
+var link_video_mission_model_1_0 = new mongoose.Schema(
 		{"video_id" : {type : String, required : true},
 		"mission_id" : {type : String, required : true},
 		"free" : [{type : String, required : false}]});
 
-var link_video_misssion_models = {
-		"1.0" : link_video_misssion_model_1_0
+var link_video_mission_models = {
+		"1.0" : link_video_mission_model_1_0
 };
 
 module.exports = {
-		"models" : link_video_misssion_models
+		"models" : link_video_mission_models
 };

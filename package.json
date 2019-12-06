@@ -1,10 +1,26 @@
 {
-	"name" : "retina-api",
-	"version" : "0.1.0",
-	"dependencies" : {
-		"mongoose" : "5.7.5",
-		"util" : "0.12.1",
-		"child-process" : "1.0.2",
-		"fs" : "0.0.1"
-	}
+  "name": "retina-api",
+  "version": "0.1.0",
+  "dependencies": {
+    "child-process": "1.0.2",
+    "fs": "0.0.1",
+    "mongoose": "5.7.5",
+    "request": "^2.88.0",
+    "util": "0.12.1"
+  },
+  "description": "Interface to request a mongo database, implemented in node.js (express and mongoose needed)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llesoil/retina_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llesoil/retina_api/issues"
+  },
+  "homepage": "https://github.com/llesoil/retina_api#readme"
 }
