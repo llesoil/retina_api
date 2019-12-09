@@ -1,0 +1,25 @@
+
+
+{ "frame_id" : ObjectId("5bedacdde92e0f1838941fd9"),
+  "camera_orientation" : { "camera_angle_north" : 15.2342, 
+                           "camera_angle_vertical" : 20.7542, 
+						   "camera_horizontal_angle" : 148.3742},
+  "drone_gps_coordinates" : { "altitude" : 12.01, 
+                              "latitude" : 048.452652, 
+							  "longitude" : -001.6406947},
+  "frame_time": "2019-05-02T16:28:15,562+02:00",
+  "object_detection" : { {"detection_bounding_box" : { "x_ini" : 146, 
+                                                       "y_ini" : 253, 
+													   "x_length" : 55, 
+													   "y_length" : 63},
+                           "dectection_name" : "person",
+						   "detection_accuracy" : 0.9567},
+						 {"detection_bounding_box" : { "x_ini" : 12, 
+						                               "y_ini" : 14, 
+													   "x_length" : 500, 
+													   "y_length" : 150},
+                           "dectection_name" : "car",
+						   "detection_accuracy" : 0.9222}},
+  "quality" : 2,
+  "zoom_ratio" : 1.00}
+

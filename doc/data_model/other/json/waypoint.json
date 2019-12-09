@@ -1,0 +1,15 @@
+
+
+{ "waypoint_id" : ObjectId("5bedacdee92e0f1838941fde"),
+  "battery_level" : 80.5,
+  "waypoint_location" : {"altitude" : 15.321,
+						 "latitude" : 048.452666, 
+						 "longitude" : -001.6406852},
+  "end_pose_time" : "2019-05-02T17:05:32,854+02:00",
+  "quality" : 2,
+  "arrival_time" : "2019-05-02T17:05:24,413+02:00",
+  "temperature" : 14.3,
+  "wind_direction" : 320.4,
+  "wind_strength" : 25}
+  
+

@@ -1,0 +1,4 @@
+https://www.digi.com/resources/documentation/digidocs/90001437-13/reference/r_iso_8601_duration_format.htm
+https://stackoverflow.com/questions/27058529/iso-8601-duration-with-milliseconds
+https://www.cl.cam.ac.uk/~mgk25/iso-time.html
+https://en.wikipedia.org/wiki/ISO_3166-1

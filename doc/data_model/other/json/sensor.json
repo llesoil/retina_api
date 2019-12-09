@@ -1,0 +1,12 @@
+
+
+{ "sensor_id" : ObjectId("5bedacdee92e0f1838941fdc"),
+  "sensor_model" : "FLIR view pro R",
+  "documentation_path" : ”/home/eeyes/doc/material/flir_view_pro_r.pdf”,
+  "focal_length" : 6.8,
+  "output_extension" : ".mov",
+  "bought_date" : "2018-09-05T00:00:00,000+02:00",
+  "sold_or_broken" : ""}
+  
+  
+  

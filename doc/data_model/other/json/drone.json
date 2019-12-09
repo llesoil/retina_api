@@ -1,0 +1,11 @@
+
+
+{ "drone_id" : ObjectId("5bedacdee92e0f1838941fdd"),
+  "drone_model" : "Matrix 600 Pro",
+  "documentation_path" : ”/home/eeyes/doc/material/matrix_600_pro.pdf”,
+  "no_payload_flying_duration" : "P0Y0M0DT0H35M00,000S",
+  "quality" : 2,
+  "purchased_date" : "2018-12-14T12:00:00,000+02:00",
+  "sold_or_broken_date" : ""}
+ 
+ 

@@ -1,0 +1,15 @@
+
+
+{ "video_id" : ObjectId("5bedacdee92e0f1838941fdb"),
+  "codec_used" : "mp1v",
+  "stop_recording_time" : "2019-05-02T17:05:58,137";
+  "focal_length" : 6.8,
+  "video_extension" : ".mp4",
+  "frame_per_second" : 8,
+  "video_path" : "/home/eeyes/data/video/video21.mp4",
+  "quality" : 2,
+  "horizontal_resolution" : 356,
+  "vertical_resolution" : 256,
+  "start_recording" : "2019-05-02T16:10:40,824+02:00", 
+  "type_of_video" : "visible" }
+  

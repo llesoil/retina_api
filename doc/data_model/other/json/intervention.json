@@ -1,0 +1,34 @@
+
+
+{ "intervention_id" : ObjectId("5bedabbce92e0f1838941fcf"),
+  "intervention_address" : { "street_number" : "263",
+                             "street_name" : "Avenue Général Leclerc",
+							 "postal_code" : "35000",
+							 "city" : "Rennes",
+							 "country_code" : "FRA",
+							 "country" : "France", 
+							 "lines" : {"E218 Office",
+							           "Table 3"} },
+  "groundbase_location" : { "altitude" : 0.00,
+                            "latitude" : 048.452670, 
+					        "longitude" : -001.6406853},
+  "drone_arrival_time" : "2019-05-02T16:30:00,000+02:00",
+  "intervention_description" : "Fire on the second and third floors, 3 victims saved",
+  "first_drone_deployed_time" : "2019-05-02T16:35:00,000+02:00",
+  "end_of_intervention_time" : "2019-05-02T17:50:00,000+02:00",
+  "intervention_limits" : {  { "altitude" : 0,
+                               "latitude" : 048.452670, 
+					           "longitude" : -001.640683},  
+							 { "altitude" : 0,
+                               "latitude" : 048.452120, 
+					           "longitude" : -001.640684},
+							 { "altitude" : 0,
+                               "latitude" : 048.452610, 
+					           "longitude" : -001.640685}},
+  "intervention_name" : "general_leclerc_may2019",
+  "quality" : 2,
+  "intervention_start_time" : "2019-05-02T16:30:00,000+02:00",
+  "type_of_intervention" :"fire"}
+  
+  
+  

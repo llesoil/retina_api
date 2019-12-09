@@ -1,0 +1,12 @@
+
+
+{ "goal_id" : ObjectId("5bedacdee92e0f1838941fdf"),
+  "order_in_mission" : 2,
+  "estimated_battery_level" : 80,
+  "goal_location" : {"altitude" : 15.310,
+					 "latitude" : 048.452670, 
+					 "longitude" : -001.6406853},
+  "quality" : 2,
+  "is_reached" : true}
+  
+  

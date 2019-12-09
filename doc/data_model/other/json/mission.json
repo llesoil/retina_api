@@ -1,0 +1,16 @@
+
+
+{ "mission_id" : ObjectId("5bedabbce92e0f1838941fce"),
+  "was_changed" : false,
+  "comments" : "Third goal far from the original objective",
+  "mission_end_time" : "2019-05-02T17:05:56,000+02:00",
+  "was_finished" : false,,
+  "moving_duration" : "P0Y0M0DT0H19M53,254S",
+  "payload_weight" : 2.3,
+  "pilot_name" : "Olivier",
+  "quality" : 2,
+  "scenario" : "S1",
+  "mission_start_time" : "2019-05-02T16:36:52,154+02:00",
+  "type_of_mission" : "building recognition"}
+  
+
