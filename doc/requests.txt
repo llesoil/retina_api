@@ -7,7 +7,7 @@
 // each line respect the same structure : type of request, request, request body
 // if the request body is missing, you don't have to fill the body, just leave it empty
 
-// to get all the interventionsin the DB
+// to get all the interventions in the DB
 get, http://127.0.0.1:1337/intervention/
 
 // to get all the interventions between two gps coordinates

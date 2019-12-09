@@ -1,5 +1,12 @@
-# API for retina
+# Retina API
 
+## UAV Retina project : A high-tech semi-autonomous drone that might save lives
+
+Supported by EIT Digital, UAV Retina is an all-in-one software and hardware platform developed by researchers of université de Rennes 1, developing semi-autonomous drones able to analyse data collected with sensors, in order to provide emergency services with a general overview of a scene, and detect potential victims.
+
+See [eole eyes website](http://eole-eyes.irisa.fr/) for further information.
+
+## 
 Interface to request a mongo database, implemented in node.js (express and mongoose needed)
 
 - In the data_models folder: every data schema and model
@@ -8,15 +15,83 @@ Interface to request a mongo database, implemented in node.js (express and mongo
 - In the python folder: old scripts to send and receive files, script to request the api
 - In the file manager folder: send or receive file, with nodejs
 
+## Install
+
+To install this API, just clone this repository, just copy the following command line in a terminal:
+
+<code>git clone https://github.com/llesoil/retina_api</code>
+
+Install npm and nodejs;
+
+<code>sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm</code>
+
 ## Usage
 
-See ./samples/request.txt to test the API after you launched it.
 
+###
+To test
+To get some results, you have to uncomment the line 
+// following the comment "write some examples in mongo" 
+// "require('../samples/data.js').load_examples();" should not be commented
+// in the main.js file (line 13 in the first version)
 
-### Others
+// to run the request, you can use postman available here : https://www.getpostman.com/
+// each line respect the same structure : type of request, request, request body
+// if the request body is missing, you don't have to fill the body, just leave it empty
 
+// to get all the interventions in the DB
+get, http://127.0.0.1:1337/intervention/
 
-Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)
- ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))   
+// to get all the interventions between two gps coordinates
+get, http://127.0.0.1:1337/intervention/gps_time=48.353179;-1.641688;48.602724;-1.640057
 
-Nodeclipse is free open-source project that grows with your contributions.
+// to get all the interventions between two gps coordinates and starting before+ending after a specific time
+get, http://127.0.0.1:1337/intervention/gps_time=48.353179;-1.641688;48.602724;-1.640057;2019-05-02T17:40:00,000+02:00
+
+//you can send a get request with a body like {"quality" : 2} -> it will select all the intervention with the quality field equal to 2
+//get the missions
+get, http://127.0.0.1:1337/mission/
+
+// add a waypoint in DB
+post, http://127.0.0.1:1337/waypoint/, {"battery_level" : 80.5,
+		"waypoint_location" : {"altitude" : 15.321,
+			"latitude" : 48.452666, 
+			"longitude" : -1.6406852},
+			"end_pose_time" : "2019-05-02T17:05:32,854+02:00",
+			"quality" : 2,
+			"arrival_time" : "2019-05-02T17:05:24,413+02:00",
+			"temperature" : 14.3,
+			"wind_direction" : 320.4,
+			"wind_strength" : 25}
+		
+// add a mission in DB
+post, http://127.0.0.1:1337/mission/, {"was_changed" : false,
+		"comments" : "Third goal far from the original objective",
+		"mission_end_time" : "2019-05-02T17:05:56,000+02:00",
+		"was_finished" : false,
+		"moving_duration" : "P0Y0M0DT0H19M53,254S",
+		"payload_weight" : 2.3,
+		"pilot_name" : "Olivier",
+		"quality" : 3,
+		"scenario" : "S2",
+		"mission_start_time" : "2019-05-02T16:36:52,154+02:00",
+		"type_of_mission" : "building recognition"}
+
+// the previous request should have added a mission, now you can get two missions
+get, http://127.0.0.1:1337/mission/
+
+// but the second one is false, so we want to delete it
+delete, http://127.0.0.1:1337/mission/scenario=S2
+
+// back to one mission
+get, http://127.0.0.1:1337/mission/
+
+// But I was wrong, the pilot was Vincent and not Olivier, I have to patch
+// you have to replace x with the id of the mission you get on the last response
+// like 5d5b1f11987c1e1d44def65b for an example
+patch, http://127.0.0.1:1337/mission/id=x, {"pilot_name":"Vincent"}
+
+//just to check that the patch request worked, who is the pilot now?
+get, http://127.0.0.1:1337/mission/
